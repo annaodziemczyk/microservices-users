@@ -29,10 +29,18 @@ const start = async () => {
 };
 start();
 
-// Connect to DB
-mongoose.connect('mongodb://localhost/users_db')
-    .then(() => console.log('MongoDB connected…'))
-    .catch(err => console.log(err));
+if(process.env.MONGO_PASS==undefined){
+    throw Error("MongoDB password not set");
+}else{
+
+    var url = 'mongodb+srv://admin:'+ (process.env.MONGO_PASS).trim() + '@cluster0-klhgu.gcp.mongodb.net/test?retryWrites=true/users_db';
+    console.log("pass: " + url);
+    // Connect to DB
+    mongoose.connect(url)
+        .then(() => console.log('MongoDB connected…'))
+        .catch(err => console.log(err));
+}
+
 
 // var http = require('http'),
 //     url = require('url');
