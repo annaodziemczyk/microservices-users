@@ -14,7 +14,6 @@ env:
     - KUBE_DEPLOYMENT_CONTAINER_NAME=users-node
     - NODE_ENV=CI
 before_deploy:
-  - source /home/travis/google-cloud-sdk/path.bash.inc
   - gcloud --quiet version
   - gcloud --quiet components update
   - gcloud --quiet components update kubectl
