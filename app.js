@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const mongoose = require('mongoose');
 const routes = require('./routes');
@@ -17,19 +17,6 @@ routes.forEach((route, index) => {
 // Register Swagger
 fastify.register(require('fastify-swagger'), swagger.options);
 
-
-// Run the server!
-const start = async () => {
-    try {
-        await fastify.listen(3001);
-        fastify.swagger();
-        fastify.log.info(`server listening on ${fastify.server.address().port}`)
-    } catch (err) {
-        fastify.log.error(err);
-        process.exit(1)
-    }
-};
-start();
 
 if(process.env.MONGO_PASS==undefined){
     throw Error("MongoDB password not set");
