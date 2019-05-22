@@ -39,7 +39,27 @@ if(process.env.MONGO_PASS==undefined){
     console.log("pass: " + url);
     // Connect to DB
     mongoose.connect(url)
-        .then(() => console.log('MongoDB connected…'))
+        .then(() => {
+            console.log('MongoDB connected…');
+            // Run the server!
+            const start = async () => {
+                try {
+                    await fastify.listen(3001, '0.0.0.0', function (err, address) {
+                        if (err) {
+                            fastify.log.error(err);
+                            process.exit(1)
+                        }
+                        fastify.swagger();
+                        fastify.log.info(`server listening on ${fastify.server.address().port}`);
+                    });
+
+                } catch (err) {
+                    fastify.log.error(err);
+                    process.exit(1)
+                }
+            };
+            start();
+        })
         .catch(err => console.log(err));
 }
 
