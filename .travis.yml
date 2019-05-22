@@ -13,10 +13,6 @@ env:
     - KUBE_DEPLOYMENT_NAME=users-node
     - KUBE_DEPLOYMENT_CONTAINER_NAME=users-node
     - NODE_ENV=CI
-before_deploy:
-  - gcloud --quiet version
-  - gcloud --quiet components update
-  - gcloud --quiet components update kubectl
 deploy:
   - provider: script
     script: chmod +x ./deploy-production.sh && ./deploy-production.sh
