@@ -1,3 +1,5 @@
+'use strict'
+
 const mongoose = require('mongoose');
 const routes = require('./routes');
 // Import Swagger Options
