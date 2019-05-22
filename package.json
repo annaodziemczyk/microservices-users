@@ -2,7 +2,7 @@
   "name": "node-api",
   "main": "server.js",
   "scripts": {
-    "start": "node node_modules/nodemon/bin/nodemon.js app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
