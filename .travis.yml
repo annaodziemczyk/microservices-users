@@ -18,7 +18,6 @@ before_deploy:
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - ;
     sudo apt-get update && sudo apt-get install google-cloud-sdk;
     fi
-  - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud --quiet version
   - gcloud --quiet components update
   - gcloud --quiet components update kubectl
