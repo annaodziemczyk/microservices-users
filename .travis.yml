@@ -11,7 +11,7 @@ env:
     - CLOUDSDK_COMPUTE_ZONE=europe-west2-a
     - DOCKER_IMAGE_NAME=users-node
     - KUBE_DEPLOYMENT_NAME=users-node
-    - KUBE_DEPLOYMENT_CONTAINER_NAME=users
+    - KUBE_DEPLOYMENT_CONTAINER_NAME=users-node
     - NODE_ENV=CI
 before_deploy:
   - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
