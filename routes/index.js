@@ -18,11 +18,6 @@ const routes = [
         url: '/api/token',
         preHandler: authController.tokenAuthentication,
         handler: authController.login
-    },
-    {
-        method: 'POST',
-        url: '/api/logout',
-        handler: authController.logout
     }
 ];
 

@@ -22,8 +22,6 @@ exports.addUser = async (req, reply) => {
         delete user.password;
         return await new User(user).save();
 
-        // const user = new User(req.body);
-        // return user.save();
     } catch (err) {
         throw boom.boomify(err);
     }

@@ -52,12 +52,4 @@ exports.login = (req, reply) => {
     }
 };
 
-exports.logout = async (req, reply) => {
-    try {
-        req.logout();
-    } catch (err) {
-        throw boom.boomify(err);
-    }
-};
-
 
