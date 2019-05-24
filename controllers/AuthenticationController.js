@@ -1,5 +1,6 @@
 const boom = require('boom');
 const passport = require('passport');
+const User = require('../models/User');
 
 
 exports.authenticate = (req, reply, next) => {
@@ -30,10 +31,10 @@ exports.tokenAuthentication = (req, reply, next) => {
         }
 
         if(passportUser) {
-            const user = passportUser;
-            user.token = passportUser.generateJWT();
+            const user = new User(passportUser);
+            user.token = user.generateJWT();
 
-            return reply.send({ user: user.toAuthJSON() });
+            return reply.send(user.toAuthJSON());
         }
 
         reply.status(401);

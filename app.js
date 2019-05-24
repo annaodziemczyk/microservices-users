@@ -16,9 +16,8 @@ if(process.env.MONGO_PASS==undefined){
 
     const local_db = 'mongodb://localhost/users';
     var url = 'mongodb+srv://admin:'+ (process.env.MONGO_PASS).trim() + '@cluster0-klhgu.gcp.mongodb.net/test?retryWrites=true';
-    console.log("pass: " + url);
     // Connect to DB
-    mongoose.connect(local_db)
+    mongoose.connect(db)
         .then(() => {
             console.log('MongoDB connected…');
             // Run the server!

@@ -29,17 +29,7 @@ const usersSchema = new mongoose.Schema({
     versionKey: false
 });
 
-// usersSchema.methods.setPassword = function(password) {
-//     this.salt = crypto.randomBytes(16).toString('hex');
-//     this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-// };
-//
-// usersSchema.methods.validatePassword = function(password) {
-//     const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-//     return this.hash === hash;
-// };
-//
-usersSchema.methods.generateJWT = function() {
+usersSchema.methods.generateJWT = function(){
     const today = new Date();
     const expirationDate = new Date(today);
     expirationDate.setDate(today.getDate() + 60);
@@ -51,7 +41,7 @@ usersSchema.methods.generateJWT = function() {
     }, 'secret');
 };
 
-usersSchema.methods.toAuthJSON = function() {
+usersSchema.methods.toAuthJSON = function(){
     let user = this.toObject();
     delete user.hashedPassword;
     return {
