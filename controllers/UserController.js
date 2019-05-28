@@ -5,7 +5,8 @@ const Joi = require('joi');
 const User = require('../models/User');
 
 const userSchema = Joi.object({
-    fullname: Joi.string().required(),
+    firstName: Joi.string().required(),
+    lastName: Joi.string().required(),
     email: Joi.string().email(),
     mobileNumber: Joi.string().regex(/^[1-9][0-9]{9}$/),
     password: Joi.string().required(),
