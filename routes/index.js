@@ -8,6 +8,11 @@ const routes = [
         handler: userController.addUser
     },
     {
+        method: 'GET',
+        url: '/api/user',
+        handler: userController.listUsers
+    },
+    {
         method: 'POST',
         url: '/api/login',
         preHandler: authController.authenticate,

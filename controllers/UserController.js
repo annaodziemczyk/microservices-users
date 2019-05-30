@@ -28,6 +28,15 @@ exports.addUser = async (req, reply) => {
     }
 };
 
+exports.listUsers = async (req, reply) => {
+    try {
+        return await User.find();
+
+    } catch (err) {
+        throw boom.boomify(err);
+    }
+};
+
 // Update an existing user
 exports.updateUser = async (req, reply) => {
     try {
