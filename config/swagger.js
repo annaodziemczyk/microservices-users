@@ -3,7 +3,7 @@ exports.options = {
     exposeRoute: true,
     swagger: {
         info: {
-            title: 'Product Catalogue API',
+            title: 'User\'s API',
             description: 'Example of a microservice for shop\'s product catalogue',
             version: '1.0.0'
         },
